@@ -1,10 +1,10 @@
 import java.util.Date
 
-fun main()
-{
+fun main() {
     // var 키워드로 변수 정의
     // var 변수명 = 값 초기화
     // 자동으로 변수 타입을 추론하여 타입 명시 필수가 아님
+    // 변수는 call-by-value 타입. 즉, 값을 복사해서 전달 받음
     var a = 1
     var b = "Hi"
     var c = 12.32
@@ -45,8 +45,8 @@ fun main()
 
     // 배열
     // 제네릭 하기 때문에 원소의 타입을 추론할 수 있도록 값을 넣거나, 값을 명시해줘야 함
+    // call-by-ref 타입, 데이터에 대한 참조만 복사됨
     var array = emptyArray<Int>()               // 빈 정수형 배열
     var arrayString = arrayOf("Hi", "world")    // 원소가 "Hi", "world" 인 string 배열
-
 
 }
