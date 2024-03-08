@@ -43,5 +43,10 @@ fun main()
     println("my profile : $string")
     println("Hello, Today is ${Date()}")
 
+    // 배열
+    // 제네릭 하기 때문에 원소의 타입을 추론할 수 있도록 값을 넣거나, 값을 명시해줘야 함
+    var array = emptyArray<Int>()               // 빈 정수형 배열
+    var arrayString = arrayOf("Hi", "world")    // 원소가 "Hi", "world" 인 string 배열
+
 
 }
