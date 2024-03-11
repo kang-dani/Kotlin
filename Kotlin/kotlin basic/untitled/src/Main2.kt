@@ -95,4 +95,28 @@ fun main()
     println("in 연산자 test ( 정수 입력 ) : ")
     val number = readLine()!!.toInt()     // readLint()!! : console 입력 받기, toInt() : 받은 값을 Int로 변환
     println(number in 10 .. 99)
+
+    val text = "message"
+    println("a in : " + 'a' in text)    // 범위 뿐만 아니라 원소를 가지는 타입일 때도 지원
+
+    // 범위를 이용하여 문자열이나 배열의 일부를 뽑아낼 수 있음
+    println("Hello, my name is ~".substring(1..3))  // 출력값 : ell
+
+    // 우선순위
+    // +, - << .. << and, or, until, downTo, step << in, !in << 비교 연산자
+
+    // when문
+    // 조건 -> 문 형태 + else -> 문 형태
+    // 최초로 참으로 평가되는 조건을 찾고 그 조건에 대응하는 문을 실행, 없다면 else 문 실행
+    fun ScoreManagement(score: Int, max: Int): String = when(score)
+    {
+        in 95 .. max -> "A+"
+        in 90 until 95 -> "A"
+        in 85 until 90 -> "B+"
+        in 80 until 95 -> "B"
+        1, 2, 3, 4, 5 -> "D+"   // 각각의 조건들은 Or 연산 취급
+        else -> "F"
+    }
+    print("ScoreManagement : ")
+    println(ScoreManagement(98, 100))
 }

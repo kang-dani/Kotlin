@@ -10,14 +10,16 @@ fun main() {
     var c = 12.32
     var d = 'a'
 
+    //mutable type
     // 필요할 경우에 타입 명시 가능
     // var 변수명: 타입 = 값
     var n: Int = 100
     var s: String = "Hello"
 
     // immutable type
-    // 값이 변경되지 않을 때, 즉 상수일 키워드
+    // 값이 변경되지 않을 때, 즉 상수인 키워드
     // val 상수명 = 값, or val 상수명: 타입 = 값
+    // 초기화 후 값 변경이 불가하나, 변수의 ref 가 가르키는 객체의 내부 값은 변경 가능.
     val name = "kang-dani"
     val age: Int = 20
 
