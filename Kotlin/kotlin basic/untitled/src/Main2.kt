@@ -54,6 +54,8 @@ fun main()
     // 다음과 같이 식으로 사용할 수 있음
     fun Max (a: Int, b: Int): Int = if( a > b ) a else b
     println("MAX : ${Max(1, 3)}")
+    fun Min (a: Int, b: Int): Int = if (a > b) a else if (a == b) 1 else b  // else if 를 사용하고 싶을 때 이와 같이 사용
+    println("Min : ${Min(3, 1)}")
 
     // 식으로 쓰는 if문 예제
     val string = "120/10"
@@ -108,6 +110,7 @@ fun main()
     // when문
     // 조건 -> 문 형태 + else -> 문 형태
     // 최초로 참으로 평가되는 조건을 찾고 그 조건에 대응하는 문을 실행, 없다면 else 문 실행
+    // 모든 예외를 생각하여 하나의 조건문이라도 부합하도록 예외 처리에 신경 써줘야 함
     fun ScoreManagement(score: Int, max: Int): String = when(score)
     {
         in 95 .. max -> "A+"
@@ -119,4 +122,23 @@ fun main()
     }
     print("ScoreManagement : ")
     println(ScoreManagement(98, 100))
+
+    // label example
+    fun list()
+    {
+        listOf(1, 2, 3, 4, 5).forEach {
+            if (it == 3) return // 가장 가까운 함수인 list() 함수 탈출
+            print(it)
+        }
+        println("unreachable")
+    }
+
+    fun listWithLabel()
+    {
+        listOf(1, 2, 3, 4, 5).forEach list@ {
+            if (it == 3) @return@list   // list@ 레이블이 설정된 forEach문 탈출
+            print(it)
+        }
+        println("explicit label")
+    }
 }
