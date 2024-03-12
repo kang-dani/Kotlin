@@ -168,5 +168,41 @@ fun main()
     }
     println("factorial : ${factorial(10)}")
 
-    // throw exception
+    // throw exception : 예외의 경우 오류를 발생시키도록
+    // throw : return type 은 Nothing 타입
+    // catch 구문 : 예외를 잡아 처리함
+    println("throw exception 예제 -- ")
+    println("수 입력 : ")
+    var num = readLine()!!.toInt()
+    if (num in 1 until 10) println("한 자리 수")
+    else throw NumberFormatException("한 자리 수가 아님")
+
+    // try-catch 문
+    // try : 예외가 발생할 수 있는 코드가 담긴 블록 (식으로 사용 가능)
+    // catch : 예외를 처리할 수 있는 블록, 선언된 순서대로 예외 타입 검사
+    // final : try 블록을 떠나기 전에 실행, 주로 파일 닫기, 네트워크 파일 닫기 등의 일을 수행하게 함
+    fun readNumber (): Int {
+        try {
+            println("try-catch 문 예제 -- ")
+            print("정수 입력 : ")
+            val inputNumber = readln().toInt()
+            return inputNumber
+        } catch (e: java.lang.NumberFormatException) {
+            return -1
+        } finally {
+            println("final block")
+        }
+    }
+    println("readNumber : ${readNumber()}")
+
+    // try 문을 식으로 사용했을 때 finally 블록의 값은 try 블록의 값에 영향 X
+    fun readInt (): Int? = try {
+        readLine()!!.toInt()
+    } catch (e: NumberFormatException) {
+        -1
+    }
+
+    println("try-catch 문 예제 2 -- ")
+    print("readInt : ${readInt()}")
+
 }
