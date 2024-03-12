@@ -123,7 +123,8 @@ fun main()
     print("ScoreManagement : ")
     println(ScoreManagement(98, 100))
 
-    // label example
+    // label example : 루프를 제어하기 위해 사용됨
+    // 레이블명@ ~ @레이블명
     fun list()
     {
         listOf(1, 2, 3, 4, 5).forEach {
@@ -132,13 +133,40 @@ fun main()
         }
         println("unreachable")
     }
+    list()
+    println()
 
-    fun listWithLabel()
+    fun forEachWithLabel()
     {
         listOf(1, 2, 3, 4, 5).forEach list@ {
-            if (it == 3) @return@list   // list@ 레이블이 설정된 forEach문 탈출
+            if (it == 3) return@list   // list@ 레이블의 각 루프 탈출, 즉, 3에서 탈출하고 4, 5 진행
             print(it)
         }
-        println("explicit label")
+        println(" : explicit label")
     }
+    forEachWithLabel()
+
+    fun nestedLambdaWithLabel()
+    {
+        run loop@ {
+            listOf(1, 2, 3, 4, 5).forEach {
+                if(it == 3) return@loop     // loop@ 레이블 블록 탈출
+                print(it)
+            }
+        }
+        print( " : nested Lambda label")
+        println()
+    }
+    nestedLambdaWithLabel()
+
+    // tail recursive : 비재귀적인 코드로 자동 변환, 재귀함수에 대한 최적화 컴파일을 위함
+    // tail recursive 가 가장 마지막으로 호출되며 함수가 끝나야 함
+    tailrec fun factorial(n: Int, mul: Int = 1): Int
+    {
+        val fac = n * mul
+        return if (n <= 1 ) fac else factorial(n - 1, fac)
+    }
+    println("factorial : ${factorial(10)}")
+
+    // throw exception
 }
