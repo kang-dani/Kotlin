@@ -95,7 +95,8 @@ fun main()
 
     // in 연산자 : 해당 범위에 있는지 체크 후 bool 값 반환. !in 사용 가능
     println("in 연산자 test ( 정수 입력 ) : ")
-    val number = readLine()!!.toInt()     // readLint()!! : console 입력 받기, toInt() : 받은 값을 Int로 변환
+    val number = readLine()!!.toInt()
+    // readLint() : console 입력 받기, !! : 입력받은 값이 null 이 아님을 알려줌, toInt() : 받은 값을 Int로 변환
     println(number in 10 .. 99)
 
     val text = "message"

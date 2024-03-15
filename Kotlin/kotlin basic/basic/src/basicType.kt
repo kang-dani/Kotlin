@@ -41,6 +41,7 @@ fun main() {
 
     // 문자열 보간
     // $ 기호를 통해 표현식 포함 가능
+    // $ 가 붙은 값은 자동으로 모든 코틀린 타입이 제공하는 toString() 메서드를 통해 문자열로 반환됨
     // Data() 사용시 코드 상단에 import java.util.Date 필요
     println("my profile : $string")
     println("Hello, Today is ${Date()}")
